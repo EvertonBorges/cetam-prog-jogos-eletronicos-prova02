@@ -33,7 +33,9 @@ public class Pokemon
     {
         return pokemonEvolucao;
     }
-
+        PokemonItemPorcao porcaoNormal = new PokemonItemPorcao("Porção Normal", 5);
+        PokemonItemPorcao porcaoSuper = new PokemonItemPorcao("Porção Super", 20);
+        PokemonItemPorcao porcaoUltra = new PokemonItemPorcao("Porção Ultra", 50);
     
 
 }

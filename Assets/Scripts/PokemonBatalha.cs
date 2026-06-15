@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PokemonBatalha
 {
-
     private PokemonBag pokemon1;
     private PokemonBag pokemon2;
 
@@ -24,7 +23,9 @@ public class PokemonBatalha
 
     private void PartidaEncerrada(PokemonBag pokemonVitoria)
     {
-        ImprimeDadosDeBatalha("Fim de partida, " + pokemonVitoria.pokemon.nome + " venceu!!!");
+        ImprimeDadosDeBatalha("Fim de partida, " +
+                              pokemonVitoria.pokemon.nome +
+                              " venceu!!!");
 
         pokemon1 = null;
         pokemon2 = null;
@@ -33,13 +34,30 @@ public class PokemonBatalha
     public void Pokemon1Ataca()
     {
         pokemon1.Ataca(pokemon2);
-        string evento = "Pokemon " + pokemon1.pokemon.nome + " atacou o pokemon " + pokemon2.pokemon.nome;
+
+        string evento = "Pokemon " +
+                         pokemon1.pokemon.nome +
+                         " atacou o pokemon " +
+                         pokemon2.pokemon.nome;
+
         ImprimeDadosDeBatalha(evento);
+
+        ChecaVitoria();
     }
 
+    
     public void Pokemon2Ataca()
     {
-        // Questão 03
+        pokemon2.Ataca(pokemon1);
+
+        string evento = "Pokemon " +
+                         pokemon2.pokemon.nome +
+                         " atacou o pokemon " +
+                         pokemon1.pokemon.nome;
+
+        ImprimeDadosDeBatalha(evento);
+
+        ChecaVitoria();
     }
 
     private void ChecaVitoria()
@@ -53,18 +71,25 @@ public class PokemonBatalha
     public void Pokemon1Curar(PokemonItemPorcao porcao)
     {
         porcao.Usar(pokemon1);
-        string evento = "Pokemon " + pokemon1.pokemon.nome + " usou porção de cura (" + porcao.nome + ")";
+
+        string evento = "Pokemon " +
+                         pokemon1.pokemon.nome +
+                         " usou porção de cura (" +
+                         porcao.nome + ")";
+
         ImprimeDadosDeBatalha(evento);
+
+        ChecaVitoria();
     }
-    
+
     private void ImprimeDadosDeBatalha(string evento)
     {
         rodada++;
 
         Debug.Log("================= Rodada " + rodada + " =================");
         Debug.Log(evento);
+
         pokemon1.ImprimeDadosDeBatalha();
         pokemon2.ImprimeDadosDeBatalha();
     }
-
 }

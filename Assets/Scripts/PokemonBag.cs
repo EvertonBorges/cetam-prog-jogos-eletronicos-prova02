@@ -52,7 +52,14 @@ public class PokemonBag
 
     public void Ataca(PokemonBag pokemonBatalha)
     {
-        pokemonBatalha.RecebeDano(pokemon.ataque);
+           int dano = (pokemon.ataque - pokemonBatalha.pokemon.defesa) / 2;
+
+    if (dano < 1)
+    {
+        dano = 1;
+    }
+
+    pokemonBatalha.RecebeDano(dano);
     }
 
     public void ImprimeDadosDeBatalha()
