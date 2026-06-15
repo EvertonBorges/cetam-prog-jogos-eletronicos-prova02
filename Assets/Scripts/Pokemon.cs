@@ -10,11 +10,12 @@ public class Pokemon
     public int defesa;
     
     public List<PokemonHabilidade> habilidades;
+
     private Pokemon pokemonEvolucao;
 
     public Pokemon(int novoId, string novoNome, int novoHp, int novoAtaque, int novaDefesa)
     {
-        id = novoId;
+        id = novoId; 
         nome = novoNome;
         hp = novoHp;
         ataque = novoAtaque;
@@ -23,8 +24,7 @@ public class Pokemon
         habilidades = new List<PokemonHabilidade>();
         pokemonEvolucao = null;
     }
-
-    public void SetEvolucao(Pokemon evolucao)
+     public void SetEvolucao(Pokemon evolucao)
     {
         pokemonEvolucao = evolucao;
     }
