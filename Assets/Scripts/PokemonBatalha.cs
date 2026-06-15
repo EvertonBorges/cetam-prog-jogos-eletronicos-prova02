@@ -32,16 +32,23 @@ public class PokemonBatalha
 
     public void Pokemon1Ataca()
     {
+        if (pokemon1 == null || pokemon2 == null) return;
+
         pokemon1.Ataca(pokemon2);
         string evento = "Pokemon " + pokemon1.pokemon.nome + " atacou o pokemon " + pokemon2.pokemon.nome;
         ImprimeDadosDeBatalha(evento);
+        ChecaVitoria();
     }
 
     public void Pokemon2Ataca()
     {
-        // Questão 03
-    }
+        if (pokemon1 == null || pokemon2 == null) return;
 
+        pokemon2.Ataca(pokemon1);
+        string evento = "Pokemon " + pokemon2.pokemon.nome + " atacou o pokemon " + pokemon1.pokemon.nome;
+        ImprimeDadosDeBatalha(evento);
+        ChecaVitoria();
+    }
     private void ChecaVitoria()
     {
         if (!pokemon1.vivo)
@@ -49,14 +56,14 @@ public class PokemonBatalha
         else if (!pokemon2.vivo)
             PartidaEncerrada(pokemon1);
     }
-
     public void Pokemon1Curar(PokemonItemPorcao porcao)
     {
+        if (pokemon1 == null || pokemon2 == null) return;
+
         porcao.Usar(pokemon1);
         string evento = "Pokemon " + pokemon1.pokemon.nome + " usou porção de cura (" + porcao.nome + ")";
         ImprimeDadosDeBatalha(evento);
     }
-    
     private void ImprimeDadosDeBatalha(string evento)
     {
         rodada++;
