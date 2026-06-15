@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PokemonBag
 {
-    
     public Pokemon pokemon;
     public int hp;
     public int hpTotal;
@@ -33,23 +32,28 @@ public class PokemonBag
         }
     }
 
-    public void RecebeDano(int dano)
+    public void RecebeDano(int danoAtacante)
     {
+        
         if (!vivo)
-            Debug.Log("Pokemon " + pokemon.nome + " está morto");
-        else
         {
-            hp = hp - dano;
-
-            if (hp < 0)
-            {
-                hp = 0;
-                vivo = false;
-                Debug.Log("Pokemon: " + pokemon.nome + " morreu");
-            }
+            Debug.Log("Pokemon " + pokemon.nome + " já está morto!");
+            return; 
         }
-    }
 
+     
+        int danoReal = (danoAtacante - pokemon.defesa) / 2;
+        if (danoReal < 1) danoReal = 1;
+
+        hp -= danoReal;
+
+        if (hp <= 0)
+        {
+            hp = 0;
+            vivo = false;
+            Debug.Log("Pokemon: " + pokemon.nome + " morreu");
+        }
+    } 
     public void Ataca(PokemonBag pokemonBatalha)
     {
         pokemonBatalha.RecebeDano(pokemon.ataque);
@@ -64,5 +68,4 @@ public class PokemonBag
             "Defesa: " + pokemon.defesa
         );
     }
-
 }

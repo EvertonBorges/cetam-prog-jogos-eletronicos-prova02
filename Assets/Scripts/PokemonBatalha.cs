@@ -35,11 +35,15 @@ public class PokemonBatalha
         pokemon1.Ataca(pokemon2);
         string evento = "Pokemon " + pokemon1.pokemon.nome + " atacou o pokemon " + pokemon2.pokemon.nome;
         ImprimeDadosDeBatalha(evento);
+        ChecaVitoria();
     }
 
     public void Pokemon2Ataca()
     {
-        // Questão 03
+        // Q pokemon2.Ataca(pokemon1);
+        string evento =  pokemon2.pokemon.nome + " ataca o " + pokemon1.pokemon.nome;
+        ImprimeDadosDeBatalha(evento);
+        ChecaVitoria();
     }
 
     private void ChecaVitoria()
