@@ -3,9 +3,8 @@ using UnityEngine;
 public class PokemonItemPorcao : PokemonItem
 {
 
-    public PokemonItemPorcao(string novoNome, int novoPoder)
+    public PokemonItemPorcao( int novoPoder)
     {
-        nome = novoNome;
         poder = novoPoder;
     }
     
