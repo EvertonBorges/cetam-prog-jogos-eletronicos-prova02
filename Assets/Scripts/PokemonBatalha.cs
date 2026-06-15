@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.LightTransport;
 
 public class PokemonBatalha
 {
@@ -39,10 +40,12 @@ public class PokemonBatalha
 
     public void Pokemon2Ataca()
     {
-        // Questão 03
+        pokemon2.Ataca(pokemon1);
+        string evento = "Pokemon " + pokemon2.pokemon.nome + " atacou o pokemon " + pokemon1.pokemon.nome;
+        ImprimeDadosDeBatalha(evento);
     }
 
-    private void ChecaVitoria()
+    public void ChecaVitoria()
     {
         if (!pokemon1.vivo)
             PartidaEncerrada(pokemon2);
@@ -57,7 +60,7 @@ public class PokemonBatalha
         ImprimeDadosDeBatalha(evento);
     }
     
-    private void ImprimeDadosDeBatalha(string evento)
+    public void ImprimeDadosDeBatalha(string evento)
     {
         rodada++;
 

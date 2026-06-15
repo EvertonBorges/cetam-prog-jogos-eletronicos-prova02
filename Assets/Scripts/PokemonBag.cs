@@ -47,12 +47,13 @@ public class PokemonBag
                 vivo = false;
                 Debug.Log("Pokemon: " + pokemon.nome + " morreu");
             }
+            
         }
     }
 
     public void Ataca(PokemonBag pokemonBatalha)
     {
-        pokemonBatalha.RecebeDano(pokemon.ataque);
+        pokemonBatalha.RecebeDano(pokemon.ataque - pokemon.defesa / 2);
     }
 
     public void ImprimeDadosDeBatalha()
@@ -66,3 +67,21 @@ public class PokemonBag
     }
 
 }
+
+
+
+
+//    switch (pokemon)
+//                 {
+                    
+//                     case 1:
+//                         dano = pokemon1.ataque - pokemon2.defesa/2;
+//                         break;
+//                     case 2:
+//                         dano = pokemon2.ataque - pokemon1.defesa/2;
+//                         break;
+//                     default;
+//                     {
+//                         dano = hp - 1;
+//                     }
+//                 }
