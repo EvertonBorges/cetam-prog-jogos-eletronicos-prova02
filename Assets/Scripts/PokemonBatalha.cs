@@ -24,8 +24,7 @@ public class PokemonBatalha
 
     private void PartidaEncerrada(PokemonBag pokemonVitoria)
     {
-        ImprimeDadosDeBatalha("Fim de partida, " + pokemonVitoria.pokemon.nome + " venceu!!!");
-
+        Debug.Log("Fim de partida, " + pokemonVitoria.pokemon.nome + " venceu!!!");
         pokemon1 = null;
         pokemon2 = null;
     }
@@ -33,13 +32,17 @@ public class PokemonBatalha
     public void Pokemon1Ataca()
     {
         pokemon1.Ataca(pokemon2);
-        string evento = "Pokemon " + pokemon1.pokemon.nome + " atacou o pokemon " + pokemon2.pokemon.nome;
+        string evento = pokemon1.pokemon.nome + " ataca o " + pokemon2.pokemon.nome;
         ImprimeDadosDeBatalha(evento);
+        ChecaVitoria();
     }
 
-    public void Pokemon2Ataca()
+    public void Pokemon2Ataca() 
     {
-        // Questão 03
+        pokemon2.Ataca(pokemon1);
+        string evento =  pokemon2.pokemon.nome + " ataca o " + pokemon1.pokemon.nome;
+        ImprimeDadosDeBatalha(evento);
+        ChecaVitoria();
     }
 
     private void ChecaVitoria()
@@ -53,7 +56,7 @@ public class PokemonBatalha
     public void Pokemon1Curar(PokemonItemPorcao porcao)
     {
         porcao.Usar(pokemon1);
-        string evento = "Pokemon " + pokemon1.pokemon.nome + " usou porção de cura (" + porcao.nome + ")";
+        string evento = pokemon1.pokemon.nome + " usou porção de cura (" + porcao.nome + ")";
         ImprimeDadosDeBatalha(evento);
     }
     
