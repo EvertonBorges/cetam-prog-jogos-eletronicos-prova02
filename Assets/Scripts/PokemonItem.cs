@@ -1,12 +1,11 @@
-public class PokemonItem
+public abstract class PokemonItem
 {
-
     public string nome;
-    public int poder;
-    
-    public void Usar()
+
+    public PokemonItem(string novoNome)
     {
-        
+        nome = novoNome;
     }
 
+    public abstract void Usar(PokemonBag pokemon);
 }

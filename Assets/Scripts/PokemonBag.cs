@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PokemonBag
 {
-    
     public Pokemon pokemon;
     public int hp;
     public int hpTotal;
@@ -36,12 +35,14 @@ public class PokemonBag
     public void RecebeDano(int dano)
     {
         if (!vivo)
+        {
             Debug.Log("Pokemon " + pokemon.nome + " está morto");
+        }
         else
         {
             hp = hp - dano;
 
-            if (hp < 0)
+            if (hp <= 0)
             {
                 hp = 0;
                 vivo = false;
@@ -50,9 +51,17 @@ public class PokemonBag
         }
     }
 
+    // Requisito 5: Fórmula de dano com mitigação por defesa e dano mínimo de 1
     public void Ataca(PokemonBag pokemonBatalha)
     {
-        pokemonBatalha.RecebeDano(pokemon.ataque);
+        int danoCalculado = (this.pokemon.ataque - pokemonBatalha.pokemon.defesa) / 2;
+
+        if (danoCalculado < 1)
+        {
+            danoCalculado = 1;
+        }
+
+        pokemonBatalha.RecebeDano(danoCalculado);
     }
 
     public void ImprimeDadosDeBatalha()
@@ -64,5 +73,4 @@ public class PokemonBag
             "Defesa: " + pokemon.defesa
         );
     }
-
 }

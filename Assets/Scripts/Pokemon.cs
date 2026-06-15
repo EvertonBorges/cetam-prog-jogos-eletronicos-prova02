@@ -2,7 +2,6 @@ using System.Collections.Generic;
 
 public class Pokemon
 {
-    
     public int id;
     public string nome;
     public int hp;
@@ -33,7 +32,4 @@ public class Pokemon
     {
         return pokemonEvolucao;
     }
-
-    
-
 }

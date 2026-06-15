@@ -1,24 +1,19 @@
-using UnityEngine;
-
 public class PokemonItemPorcao : PokemonItem
 {
+    public int poder;
 
-    public PokemonItemPorcao(string novoNome, int novoPoder)
+    // Construtor que passa o nome para a classe pai (base) e define o poder da cura
+    public PokemonItemPorcao(string novoNome, int novoPoder) : base(novoNome)
     {
-        nome = novoNome;
         poder = novoPoder;
     }
-    
-    public void Usar(PokemonBag pokemon)
+
+    // Sobrescreve o método Usar para aplicar os pontos de cura na PokemonBag
+    public override void Usar(PokemonBag pokemon)
     {
-        if (!pokemon.vivo)
-        {
-            Debug.Log("Cura não pode ser usada pois o pokemon " + pokemon.pokemon.nome + " está morto!");
-        }
-        else
+        if (pokemon != null)
         {
             pokemon.Curar(poder);
         }
     }
-
 }
