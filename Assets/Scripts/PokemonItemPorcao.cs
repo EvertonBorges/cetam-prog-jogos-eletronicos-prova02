@@ -13,7 +13,7 @@ public class PokemonItemPorcao : PokemonItem
     {
         if (!pokemon.vivo)
         {
-            Debug.Log("Cura não pode ser usada pois o pokemon " + pokemon.pokemon.nome + " está morto!");
+            Debug.Log("Cura não pode ser usada pois o pokemon " + pokemon.pokemon.nome + " está Desmaiado!");
         }
         else
         {
