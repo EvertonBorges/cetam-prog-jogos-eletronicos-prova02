@@ -39,7 +39,10 @@ public class PokemonBag
             Debug.Log("Pokemon " + pokemon.nome + " está morto");
         else
         {
-            hp = hp - dano;
+            int danoFinal = (dano - pokemon.defesa) / 2;
+            if (danoFinal <= 0) danoFinal = 1;
+
+            hp = hp - danoFinal;
 
             if (hp < 0)
             {
