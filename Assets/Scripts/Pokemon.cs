@@ -34,6 +34,4 @@ public class Pokemon
         return pokemonEvolucao;
     }
 
-    
-
 }
